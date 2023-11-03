@@ -1,7 +1,7 @@
 {
   "name": "regression-analysis",
   "version": "1.0.0",
-  "description": "application for determining the dependence of one variable on another using the least squares method",
+  "description": "web application for predicting the value of the dependent variable based on the independent variable",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
