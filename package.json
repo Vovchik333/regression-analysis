@@ -1,0 +1,16 @@
+{
+  "name": "regression-analysis",
+  "version": "1.0.0",
+  "description": "application for determining the dependence of one variable on another using the least squares method",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Volodymyr Potapenko",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {},
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

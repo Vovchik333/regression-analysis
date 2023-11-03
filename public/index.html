@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>Regression analysis</title>
+</head>
+<body>
+    <header>
+        <h1>Regression analysis</h1>
+    </header>
+    <main>
+        <section class="description">
+            <article>
+                <h2>Least squares method</h2>
+                <p>
+                    The least squares method is the process of finding the best regression 
+                    line for any set of data described by an equation. This method is an 
+                    attempt to make the sum of the squared deviations between the given 
+                    objects as small as possible. Linear regression allows you to predict 
+                    values, so the least squares method is used by statisticians and traders 
+                    who want to identify trading opportunities and trends.
+                </p>
+            </article>
+            <aside>
+                <img src="./example.png" alt="linear regression image" width="200" height="200">
+                <p><i>An example of a regression line</i></p>
+            </aside>
+        </section>
+        <section class="left-side">
+            <div>
+                <input type="text" class="input-x" placeholder="x">
+                <input type="text" class="input-y" placeholder="y">
+                <button class="btn-update-table">add</button>
+            </div>
+            <div>
+                <button class="btn-update-chart">solve</button>
+            </div>
+            
+            <div>
+                <span class="formula">Formula: y = a * x + b</span>
+            </div>
+            
+            <div>
+                <table class="data-table">
+                    <thead>
+                        <th>x</th>
+                        <th>y</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+        <section class="right-side">
+            <canvas id="chart"></canvas>
+        </section>
+        <script type="module" src="./chart-processing.js"></script>
+        <script type="module" src="./modules/linear-regression.js"></script>
+    </main>
+    <footer class="foot-line">
+        <a href="https://github.com/Vovchik333" target="_blank">
+            Click on the text to view other projects of Volodymyr Potapenko
+        </a>
+    </footer>
+</body>
+</html>
