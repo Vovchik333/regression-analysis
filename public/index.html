@@ -18,10 +18,12 @@
                 <p>
                     The least squares method is the process of finding the best regression 
                     line for any set of data described by an equation. This method is an 
-                    attempt to make the sum of the squared deviations between the given 
-                    objects as small as possible. Linear regression allows you to predict 
+                    attempt to make the sum of the squared errors between the given 
+                    objects as small as possible. The smaller the sum of squared errors, the 
+                    more accurate the prediction. Linear regression allows you to predict 
                     values, so the least squares method is used by statisticians and traders 
-                    who want to identify trading opportunities and trends.
+                    who want to identify trading opportunities and trends. In the example above, 
+                    you can see the regression line (blue), the squared errors (blue), and the objects (green).
                 </p>
             </article>
             <aside>
@@ -30,19 +32,20 @@
             </aside>
         </section>
         <section class="left-side">
-            <div>
+            <div class="input-var">
                 <input type="text" class="input-x" placeholder="x">
                 <input type="text" class="input-y" placeholder="y">
-                <button class="btn-update-table">add</button>
             </div>
-            <div>
-                <button class="btn-update-chart">solve</button>
+            <div class="container-btn">
+                <button class="btn-update-table">Add</button>
+                <button class="btn-update-chart">Solve</button>
             </div>
-            
             <div>
                 <span class="formula">Formula: y = a * x + b</span>
             </div>
-            
+            <div>
+                <span class="deviations">Sum of squared deviations: ?</span>
+            </div>
             <div>
                 <table class="data-table">
                     <thead>
@@ -54,7 +57,16 @@
             </div>
         </section>
         <section class="right-side">
-            <canvas id="chart"></canvas>
+            <div>
+                <canvas id="chart"></canvas>
+            </div>
+            <div>
+                <span class="predicted-value">Predicted the value of y: ?</span>
+            </div>
+            <div>
+                <input type="text" class="input-x-for-predict" placeholder="x">
+                <button class="btn-predict">Predict</button>
+            </div>
         </section>
         <script type="module" src="./chart-processing.js"></script>
         <script type="module" src="./modules/linear-regression.js"></script>

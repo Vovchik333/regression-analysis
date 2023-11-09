@@ -2,7 +2,6 @@ export const linearRegression = (x, y) => {
     const xy = [];
     const x2 = [];
     const n = x.length;
-    console.log(n);
     let sumX = 0, sumY = 0, sumXy = 0, sumX2 = 0;
     for(let i = 0; i < n; i++) {
         xy.push(x[i] * y[i]);
@@ -34,8 +33,13 @@ export const linearRegression = (x, y) => {
         arrSigma.push(Math.pow((y[i] - (a * x[i] + b)), 2));
         sigma += arrSigma[i];
     }
+    sigma = Math.round(sigma * 100000) / 100000;
 
     return {
         a, b, sigma
     };
+}
+
+export const predictValue = (x, a, b) => {
+    return Math.round((a * x + b) * 1000) / 1000;
 }

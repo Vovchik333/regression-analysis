@@ -1,4 +1,4 @@
-import { linearRegression } from "./modules/linear-regression.js";
+import { linearRegression, predictValue } from "./modules/linear-regression.js";
 
 const chartInit = () => {
     const ctx = document.getElementById('chart').getContext('2d');
@@ -44,15 +44,22 @@ const chartInit = () => {
 }
 
 const init = () => {
+    let tiltAngl = 0;
+    let intersectionYAxis = 0;
+
     const xData = [];
     const yData = [];
     const btnUpdateTable = document.querySelector('.btn-update-table');
     const btnUpdateChart = document.querySelector('.btn-update-chart');
+    const btnPredict = document.querySelector('.btn-predict');
     const formula = document.querySelector('.formula');
+    const deviations = document.querySelector('.deviations');
+    const predictedValue = document.querySelector('.predicted-value');
     const dataTable = document.querySelector('.data-table');
 
     const inputX = document.querySelector('.input-x');
     const inputY = document.querySelector('.input-y');
+    const inputXpredict = document.querySelector('.input-x-for-predict');
 
     const chart = chartInit();
 
@@ -99,9 +106,17 @@ const init = () => {
 
     btnUpdateChart.addEventListener('click', async () => {
         const {a, b, sigma} = linearRegression(xData, yData);
+        tiltAngl = a;
+        intersectionYAxis = b;
         formula.innerHTML = `Formula: y = ${a} * x + ${b}`;
+        deviations.innerHTML = `Sum of squared deviations: ${sigma}`
         updateChart(xData, yData, a, b);
     });
+
+    btnPredict.addEventListener('click', async () => {
+        const x = inputXpredict.value;
+        predictedValue.innerHTML = `Predicted the value of y: ${predictValue(x, tiltAngl, intersectionYAxis)}`
+    })
 }
 
 document.addEventListener('DOMContentLoaded', init(), false);

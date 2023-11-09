@@ -7,11 +7,6 @@
     font-family: Roboto, Arial, sans-serif;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-}
-
 header {
     position: fixed;
     z-index: 1;
@@ -23,19 +18,36 @@ header {
 
 header h1 {
     color: darkslateblue;
+    padding-top: 2px;
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
+    font-size: clamp(25px, 2vw, 35px);
 }
 
 main {
     width: 100%;
-    padding: 95px 50px 0px;
+    padding: 95px 25px 0px;
     display: grid;
-    grid-template-columns: 50% 50%;
-
-    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+        "description description"
+        "left-side right-side";
     gap: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+    main {
+        grid-template-columns: 100%;
+        grid-template-areas: 
+            "description"
+            "right-side"
+            "left-side";
+    }
+}
+
+p {
+    line-height: 1.5;
 }
 
 section {
@@ -75,7 +87,7 @@ button {
 }
 
 .description {
-    grid-column: 1 / 3;
+    grid-area: description;
     display: flex;
     min-height: 300px;
     padding: 20px;
@@ -103,31 +115,40 @@ article h2 {
 }
 
 .left-side {
-    width: 100%;
+    grid-area: left-side;
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    /* grid-column: 1; */
-    padding: 20px 10px 10px;
+    padding: 20px;
 }
 
 .left-side div {
     margin-bottom: 20px;
     display: flex;
+    flex-wrap: wrap;
+}
+
+.input-var {
     justify-content: space-around;
 }
 
-.btn-update-table {
-    padding: 4px;
-    width: 60px;
+.input-var * {
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
-.btn-update-chart {
+.container-btn {
+    justify-content: space-around;
+}
+
+.btn-update-table, .btn-update-chart, .btn-predict {
     padding: 6px;
     width: 80px;
 }
 
 .data-table {
     width: 100%;
-    border-collapse: collapse; /* зєднання внутрішніх рамок таблиці */
+    border-collapse: collapse;
 }
 
 .data-table td {
@@ -139,8 +160,13 @@ article h2 {
 }
 
 .right-side {
+    grid-area: right-side;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    max-width: 700px;
-    height: 500px;
-    /* grid-column: 2; */
+    padding: 20px;
+}
+
+.right-side div {
+    padding-bottom: 10px;
 }
