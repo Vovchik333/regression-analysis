@@ -80,10 +80,20 @@ input[type="text"] {
 }
 
 button {
+    padding: 6px;
+    width: 80px;
     background-color: rgb(126, 237, 183);
     color: darkslateblue;
     border: 3px solid darkslateblue;
     border-radius: 10px;
+}
+
+button:hover {
+    background-color: rgb(51, 236, 147)
+}
+
+button:active {
+    transform: scale(0.9);
 }
 
 .description {
@@ -139,11 +149,6 @@ article h2 {
 
 .container-btn {
     justify-content: space-around;
-}
-
-.btn-update-table, .btn-update-chart, .btn-predict {
-    padding: 6px;
-    width: 80px;
 }
 
 .data-table {
